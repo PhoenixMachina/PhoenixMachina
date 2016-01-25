@@ -8,8 +8,12 @@ http = HttpHandler() do req::Request, res::Response
       getContent(req,res)
     elseif ismatch(r"^/PhoenixMachina/",req.resource)
       m = match(r"^/PhoenixMachina/[a-z]",req.resource)
-      include(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
-      getContent(req,res)
+      if isfile(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
+        include(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
+        getContent(req,res)
+      else
+        Response("404")
+      end
     else
     Response("404")
     end
