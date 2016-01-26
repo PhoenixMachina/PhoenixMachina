@@ -1,6 +1,6 @@
 function getContent(req::Request, res::Response)
-  Response("Welcome to my planet!")
-end
+  response =  open(readall,string(HOME_URL,"views/register.html"));
+  Response(response)end
 
 function postContent(req::Request, res::Response)
 
