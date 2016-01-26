@@ -1,6 +1,7 @@
 using HttpServer
 
 include("config.jl")
+include("include/ResponseHandler.jl")
 
 http = HttpHandler() do req::Request, res::Response
     if ismatch(r"PhoenixMachina$",req.resource)||ismatch(r"PhoenixMachina/$",req.resource)
