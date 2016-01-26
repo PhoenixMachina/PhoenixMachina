@@ -1,5 +1,4 @@
 using HttpServer
-using LightXML
 
 include("config.jl")
 
