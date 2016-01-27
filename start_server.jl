@@ -1,6 +1,6 @@
 # Imports
 using HttpServer
-using MySQL
+# using MySQL
 
 # Required files
 include("config.jl")
