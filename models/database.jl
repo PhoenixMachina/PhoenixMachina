@@ -3,7 +3,7 @@ using ODBC
 module Database
 	dsn = "localhost"
 	user = "root"
-	password = "246878kana"
+	password = ""
 
 	try
 		global db = ODBC.connect(dsn, usr=user, pwd=password)
