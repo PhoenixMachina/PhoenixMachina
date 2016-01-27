@@ -2,7 +2,7 @@
 
 #Home URLS
 HOME_CONTROLLER = "HomeController.jl"
-HOME_URL = "/Users/fabien/Documents/Sites/PhoenixMachina/"
+HOME_URL = ""
 
 # Database
 DB_USER = ""
