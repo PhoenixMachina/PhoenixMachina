@@ -1,9 +1,19 @@
+# Imports
 using HttpServer
+using MySQL
 
+# Required files
 include("config.jl")
 include("include/ResponseHandler.jl")
-include("models/database.jl")
 
+# Starting Database
+try
+  global con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
+catch
+  println("Failed to connect to the database.")
+end
+
+# URL Routing
 http = HttpHandler() do req::Request, res::Response
     if ismatch(r"PhoenixMachina$",req.resource)||ismatch(r"PhoenixMachina/$",req.resource)
       include(string(HOME_URL,"controllers/",HOME_CONTROLLER))

@@ -1,5 +1,5 @@
 function getContent(req::Request, res::Response)
-  response =  open(readall,string(HOME_URL,HOME_PAGE));
+  response =  open(readall,string(HOME_URL,"views/home.html"));
   Response(parseView(response))
 end
 
