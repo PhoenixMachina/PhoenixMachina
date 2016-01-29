@@ -5,6 +5,7 @@
 ### Packages
 You need to have install the following Julia packages on your computer :
 - HttpServer
+- Logging
 
 To install a package, open a Julia console, and type Pkg.add("PACKAGE_NAME")
 
