@@ -41,7 +41,16 @@ http = HttpHandler() do req::Request, res::Response
       include(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
       getContent(req,res)
     else
-      Response("404")
+      if ismatch(r"^/PhoenixMachina/resources/",req.resource) #Access to a ressource page
+        match(r"^/PhoenixMachina\/resources\/([a-z]+)\/([a-zA-Z0-9]+)",req.resource)
+        if !ismatch(r"^/PhoenixMachina\/resources\/([a-z]+)\/([a-zA-Z0-9]+)",req.resource)
+          Response("404")
+        else
+
+        end
+      else
+        Response("404")
+      end
     end
 
   else
