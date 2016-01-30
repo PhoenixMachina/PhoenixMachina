@@ -1,5 +1,6 @@
 # Imports
 using HttpServer
+using HttpCommon
 using Logging
 using MySQL
 
@@ -36,23 +37,31 @@ http = HttpHandler() do req::Request, res::Response
 
   elseif ismatch(r"^/PhoenixMachina/",req.resource) # Other controller
     m = match(r"^/PhoenixMachina\/([a-zA-Z0-9]+)?\/?",req.resource)
-    println(m.match)
     if isfile(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
       include(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
       getContent(req,res)
     else
       if ismatch(r"^/PhoenixMachina/resources/",req.resource) #Access to a ressource page
-        match(r"^/PhoenixMachina\/resources\/([a-z]+)\/([a-zA-Z0-9]+)",req.resource)
-        if !ismatch(r"^/PhoenixMachina\/resources\/([a-z]+)\/([a-zA-Z0-9]+)",req.resource)
+        if !ismatch(r"^/PhoenixMachina\/resources\/([a-zA-Z0-9./]+)",req.resource)
           Response("404")
         else
-
+          # Check if file exists, if yes, returns it
+          m2 = match(r"^/PhoenixMachina\/resources\/([a-zA-Z0-9./]+)",req.resource)
+          if isfile(string(HOME_URL,(m2.match)[17:end]))
+            headers = Headers(
+            "Server"            => "Julia/$VERSION",
+            "Content-Type"      => "text/css; charset=utf-8",
+            "Content-Language"  => "fr",
+            "Date"              => Dates.format(now(Dates.UTC), Dates.RFC1123Format) )
+            Response(open(readall,string(HOME_URL,(m2.match)[17:end])),headers)
+          else
+            Response("404")
+          end
         end
       else
         Response("404")
       end
     end
-
   else
     Response("404")
   end # Ends regex conditions
