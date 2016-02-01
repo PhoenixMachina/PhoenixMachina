@@ -2,14 +2,18 @@
 <html>
 <head>
     <title>PhoenixMachina</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="resources/css/main.css" media="screen">
 </head>
 <body>
-    <h1>Inscription</h1>
-    <form method="post" action="register">
-        <label>Pseudo</label> : <input type="text" name="pseudo" />
-        <label>Mot de passe</label> : <input type="password" name="password" />
-        <label>Email</label> : <input type="text" name="email" />
-        <input type="submit" value="Inscription">
+  <header class="header">
+    <h1 class="header--title">Inscription</h1>
+  </header>
+    <form method="post" action="register" class="loginForm">
+        <label for="pseudo">Pseudo</label> <input type="text" name="pseudo" id="pseudo" class="loginForm__inputText"/><br>
+        <label for="password">Mot de passe</label> <input type="password" name="password" id="password" class="loginForm__inputText"/><br>
+        <label for="mail">Email</label> <input type="text" name="mail" id="mail" class="loginForm__inputText"/><br>
+        <input type="submit" value="Inscription" class="btn loginForm__submit">
     </form>
 </body>
 </html>
