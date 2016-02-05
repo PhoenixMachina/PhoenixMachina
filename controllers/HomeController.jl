@@ -1,6 +1,6 @@
 function getContent(req::Request, res::Response)
-  view =  open(readall,string(HOME_URL,"views/home.html"));
-  Response(parseView(view))
+  homePage = Page("","home.html",Dict())
+  Response(getParsedContent(homePage))
 end
 
 function postContent(req::Request, res::Response)

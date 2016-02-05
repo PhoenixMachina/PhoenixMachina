@@ -6,7 +6,7 @@ using MySQL
 
 # Required files
 include("config.jl")
-include("include/ResponseHandler.jl")
+include("modules/PageModule.jl")
 
 function connectToDatabase()   # Starting Database connexion
   try
