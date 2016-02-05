@@ -36,3 +36,5 @@ You then just need to open your browser and type localhost:8000/PhoenixMachina
 If you want to join in, feel free to!
 
 We have a slack account for the team which we'll give you access to once you've made your first pull request.
+
+Also, don't hesitate to add issues on GitHub, we won't eat you :)
