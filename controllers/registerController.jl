@@ -4,5 +4,5 @@ function getContent(req::Request, res::Response)
 end
 
 function postContent(req::Request, res::Response)
-
+  Response("You might be able to register here one day")
 end

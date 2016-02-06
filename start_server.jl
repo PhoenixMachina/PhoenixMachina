@@ -39,7 +39,11 @@ http = HttpHandler() do req::Request, res::Response
     m = match(r"^/PhoenixMachina\/([a-zA-Z0-9]+)?\/?",req.resource)
     if isfile(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
       include(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
-      getContent(req,res)
+      if isempty(req.data)
+        getContent(req,res)
+      else
+        postContent(req,res)
+      end
     else
       if ismatch(r"^/PhoenixMachina/resources/",req.resource) #Access to a ressource page
         if !ismatch(r"^/PhoenixMachina\/resources\/([a-zA-Z0-9./]+)",req.resource)
