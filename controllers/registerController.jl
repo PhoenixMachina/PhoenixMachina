@@ -4,12 +4,5 @@ function getContent(req::Request, res::Response)
 end
 
 function postContent(req::Request, res::Response)
-  dataPost = "" # Reset
-  n = 1
-  for n in eachindex(req.data)
-    dataPost = string(dataPost,Char(req.data[n]))
-  end
-
   Response("You might be able to register here one day")
-
 end
