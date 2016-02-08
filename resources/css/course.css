@@ -1,0 +1,48 @@
+
+/***************  CourseMenu  ***************/
+
+.courseMenu {
+  position: fixed;
+  width: 15%;
+}
+
+  .courseMenu--title {
+    background-color: white;
+    margin: 5px 0;
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+  }
+
+  .courseMenu--list {
+    background-color: white;
+    margin: 5px 0;
+    padding: 5px;
+  }
+
+    .courseMenu--list--item {
+      padding: 5px 2px;
+    }
+
+  .courseMenu--back {
+    background-color: white;
+    margin: 5px 0;
+    padding: 5px;
+  }
+
+/***************  CourseSection  ***************/
+
+
+.courseTitle {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 30px;
+  color: #212121;
+}
+
+.courseContainer {
+  background-color: white;
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+}
