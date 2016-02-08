@@ -7,7 +7,6 @@ using MySQL
 # Required files
 include("config.jl")
 include("modules/PageModule.jl")
-include("include/functions.jl")
 
 function connectToDatabase()   # Starting Database connexion
   try
@@ -44,13 +43,8 @@ http = HttpHandler() do req::Request, res::Response
         getContent(req,res)
       else
         global dataPost = "" # Reset
-        global foo = []
         for n in eachindex(req.data)
           global dataPost = string(dataPost, Char(req.data[n]))
-        end
-        global dataPost = split(dataPost, "&")
-        for n in eachindex(dataPost)
-          push!(foo, split(dataPost[n], "="))
         end
         postContent(req,res)
       end
