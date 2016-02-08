@@ -16,7 +16,18 @@ function postContent(req::Request, res::Response)
     global mail = foo[n][1] == "mail" ? foo[n][2] : !is_null(mail) ? mail : ""
   end
   if !is_null(pseudo) && !is_null(password) && !is_null(mail)
-    # etc...
+    # Check all users added in the table
+    sql = "SELECT * FROM users;"
+    usersTable = mysql_execute_query(con, sql; opformat=MYSQL_TUPLES)
+    for row in eachindex(usersTable)
+      # usersTable[row][2]: name
+      # usersTable[row][5]: email
+      if pseudo == usersTable[row][2] || mail == usersTable[row][5]
+        critical("User already exist")
+      else
+        mysql_execute_query(con, "INSERT INTO users (username, password, email) values (\"$pseudo\", \"$password\", \"$mail\");")
+      end
+    end
    else
     critical("Have you defined all inputs ?")
    end
