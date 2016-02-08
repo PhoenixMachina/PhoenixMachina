@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(80) NOT NULL,
   `password` varchar(255) NOT NULL,
   `avatar` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `lastlogin_date` timestamp NULL DEFAULT NULL,
   `group` int(11) NOT NULL,
