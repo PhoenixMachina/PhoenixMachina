@@ -42,6 +42,10 @@ http = HttpHandler() do req::Request, res::Response
       if isempty(req.data)
         getContent(req,res)
       else
+        global dataPost = "" # Reset
+        for n in eachindex(req.data)
+          global dataPost = string(dataPost, Char(req.data[n]))
+        end
         postContent(req,res)
       end
     else
