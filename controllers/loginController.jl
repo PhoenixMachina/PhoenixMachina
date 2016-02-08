@@ -21,7 +21,7 @@ function postContent(req::Request, res::Response)
       # usersTable[row][2]: name
       # usersTable[row][3]: password
       # usersTable[row][5]: email
-      if ( username == usersTable[row][2] || username == userTable[row][5] ) && password == usersTable[row][3]
+      if ( username == usersTable[row][2] || username == usersTable[row][5] ) && password == usersTable[row][3]
         println("Login successfully")
       else
         critical("Wrong user/password")
