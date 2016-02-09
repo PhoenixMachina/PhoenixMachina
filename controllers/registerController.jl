@@ -23,13 +23,13 @@ function postContent(req::Request, res::Response)
       # usersTable[row][2]: name
       # usersTable[row][5]: email
       if pseudo == usersTable[row][2] || mail == usersTable[row][5]
-        critical("User already exist")
+        err("User already exist")
       else
         mysql_execute_query(con, "INSERT INTO users (username, password, email) values (\"$pseudo\", \"$password\", \"$mail\");")
       end
     end
    else
-    critical("Have you defined all inputs ?")
+    err("Have you defined all inputs ?")
    end
   Response(getParsedContent(registerPage))
 end

@@ -24,11 +24,11 @@ function postContent(req::Request, res::Response)
       if ( username == usersTable[row][2] || username == usersTable[row][5] ) && password == usersTable[row][3]
         println("Login successfully")
       else
-        critical("Wrong user/password")
+        err("Wrong user/password")
       end
     end
    else
-    critical("Have you defined all inputs ?")
+    err("Have you defined all inputs ?")
    end
   Response(getParsedContent(loginPage))
 end
