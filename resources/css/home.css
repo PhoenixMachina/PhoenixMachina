@@ -6,7 +6,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{di
 nav ul{list-style:none}
 blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:none}
-a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none; color:inherit;}
 mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
 del{text-decoration:line-through}
 abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
@@ -36,6 +36,13 @@ canvas{
 /* ---- Layout ---- */
 
 /* ---- Module ---- */
+
+.connectionContainer {
+	position: absolute;
+	right: 0;
+	margin: 10px;
+	color: #DDDDDD;
+}
 
 .titleWrapper{
 	position: absolute;

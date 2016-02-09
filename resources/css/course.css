@@ -3,8 +3,13 @@
 
 .courseMenu {
   position: fixed;
-  width: 15%;
+  width: 20%;
 }
+
+  .toggleButton {
+    background-color: #111;
+    color: #FAFAFA;
+  }
 
   .courseMenu--title {
     background-color: white;
@@ -42,7 +47,11 @@
 
 .courseContainer {
   background-color: white;
-  width: 60%;
-  margin: auto;
+  width: 65%;
+  margin-left: 25%;
   padding: 20px;
 }
+
+  @media screen and (max-width: 700px) {
+
+  }
