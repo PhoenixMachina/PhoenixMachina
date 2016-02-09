@@ -3,16 +3,17 @@
 ## Backend requirements
 
 ### Packages
-You need to have install the following Julia packages on your computer :
+Just run install.jl to download all necessary packages. If you want to do it by hand, you need to install those packages :
 - HttpServer
 - Logging
+- Markdown
 
 To install a package, open a Julia console, and type Pkg.add("PACKAGE_NAME")
 
 You also need a package with the MySQL driver. To download it, type Pkg.clone("https://github.com/JuliaComputing/MySQL.jl")
 
 ### Database
-You need to create a database phoenixmachina and import the file phoenixmachina.sql which contains the tables you'll need.
+You need to have MySQL installed on your computer, create a database phoenixmachina and import the file phoenixmachina.sql which contains the tables you'll need.
 
 ## Settings
 ### Required
