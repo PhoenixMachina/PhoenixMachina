@@ -1,0 +1,5 @@
+Pkg.update()
+Pkg.add("HttpServer")
+Pkg.add("Logging")
+Pkg.add("Markdown")
+Pkg.clone("https://github.com/JuliaComputing/MySQL.jl")
