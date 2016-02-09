@@ -6,12 +6,12 @@ end
 function postContent(req::Request, res::Response)
   loginPage = Page("main.html","login.html",Dict())
   # Set post variables
-  global username = ""
-  global password = ""
+  username = ""
+  password = ""
   # Check all values of post requests
   for n in eachindex(foo)
-    global username = foo[n][1] == "username" ? foo[n][2] : !is_null(username) ? username : ""
-    global password = foo[n][1] == "password" ? foo[n][2] : !is_null(password) ? password : ""
+    username = foo[n][1] == "username" ? foo[n][2] : !is_null(username) ? username : ""
+    password = foo[n][1] == "password" ? foo[n][2] : !is_null(password) ? password : ""
   end
   if !is_null(username) && !is_null(password)
     # Check all users added in the table

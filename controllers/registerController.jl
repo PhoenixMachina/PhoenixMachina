@@ -6,14 +6,14 @@ end
 function postContent(req::Request, res::Response)
   registerPage = Page("main.html","register.html",Dict())
   # Set post variables
-  global pseudo = ""
-  global password = ""
-  global mail = ""
+  pseudo = ""
+  password = ""
+  mail = ""
   # Check all values of post requests
   for n in eachindex(foo)
-    global pseudo = foo[n][1] == "pseudo" ? foo[n][2] : !is_null(pseudo) ? pseudo : ""
-    global password = foo[n][1] == "password" ? foo[n][2] : !is_null(password) ? password : ""
-    global mail = foo[n][1] == "mail" ? foo[n][2] : !is_null(mail) ? mail : ""
+    pseudo = foo[n][1] == "pseudo" ? foo[n][2] : !is_null(pseudo) ? pseudo : ""
+    password = foo[n][1] == "password" ? foo[n][2] : !is_null(password) ? password : ""
+    mail = foo[n][1] == "mail" ? foo[n][2] : !is_null(mail) ? mail : ""
   end
   if !is_null(pseudo) && !is_null(password) && !is_null(mail)
     # Check all users added in the table
