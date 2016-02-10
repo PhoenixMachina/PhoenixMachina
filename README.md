@@ -10,7 +10,8 @@ Just run install.jl to download all necessary packages. If you want to do it by 
 
 To install a package, open a Julia console, and type Pkg.add("PACKAGE_NAME")
 
-You also need a package with the MySQL driver. To download it, type Pkg.clone("https://github.com/JuliaComputing/MySQL.jl")
+You also need our ORM : Pkg.clone("https://github.com/PhoenixMachina/SapphireORM")
+You might have a problem with "MySQL library not found error". The error comes from above, look here to find the answer you're looking for : https://github.com/JuliaDB/MySQL.jl
 
 ### Database
 You need to have MySQL installed on your computer, create a database phoenixmachina and import the file phoenixmachina.sql which contains the tables you'll need.

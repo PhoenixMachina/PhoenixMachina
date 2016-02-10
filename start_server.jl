@@ -2,7 +2,7 @@
 using HttpServer
 using HttpCommon
 using Logging
-using MySQL
+using SapphireORM
 
 # Required files
 include("config.jl")
@@ -11,7 +11,7 @@ include("include/functions.jl")
 
 function connectToDatabase()   # Starting Database connexion
   try
-    global con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
+    global con = connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
   catch
     critical("Failed to connect to the database.")
   end
