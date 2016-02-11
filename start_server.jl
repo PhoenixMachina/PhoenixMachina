@@ -11,7 +11,7 @@ include("include/functions.jl")
 
 function connectToDatabase()   # Starting Database connexion
   try
-    global con = connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
+    global con = Sapphire(username=DB_USER, password=DB_PASSWORD, dbname=DB_NAME)
   catch
     critical("Failed to connect to the database.")
   end
