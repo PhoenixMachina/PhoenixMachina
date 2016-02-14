@@ -11,6 +11,7 @@ Just run install.jl to download all necessary packages. If you want to do it by 
 To install a package, open a Julia console, and type Pkg.add("PACKAGE_NAME")
 
 You also need our ORM : Pkg.clone("https://github.com/PhoenixMachina/SapphireORM")
+and our Template Engine : Pkg.clone("https://github.com/PhoenixMachina/Tlaloc")
 You might have a problem with "MySQL library not found error". The error comes from above, look here to find the answer you're looking for : https://github.com/JuliaDB/MySQL.jl
 
 ### Database

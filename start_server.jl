@@ -3,10 +3,10 @@ using HttpServer
 using HttpCommon
 using Logging
 using SapphireORM
+using Tlaloc
 
 # Required files
 include("config.jl")
-include("modules/PageModule.jl")
 include("include/functions.jl")
 
 function connectToDatabase()   # Starting Database connexion
