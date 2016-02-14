@@ -108,6 +108,17 @@ body {
   .loginForm__submit {
     margin: 10px;
   }
+
+  .cgu{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    line-height: 1.8;
+  }
+  .cgu h1
+  {
+    font-size: 25px;
+  }
 /* ---- State ---- */
 
 /* ---- Theme ---- */
