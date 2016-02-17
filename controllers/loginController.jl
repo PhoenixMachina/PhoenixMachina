@@ -1,6 +1,6 @@
 function getContent(req::Request, res::Response)
-  loginPage = Page("main.html","login.html",Dict())
-  Response(getParsedContent(loginPage))
+  homePage = Page("C:/Users/Nathanael/Desktop/julia/PhoenixMachina/views/login.html",Dict())
+  Response(render(homePage))
 end
 
 function postContent(req::Request, res::Response)
