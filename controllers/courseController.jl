@@ -1,8 +1,8 @@
 function getContent(req::Request, res::Response)
-  homePage = Page("C:/Users/Nathanael/Desktop/julia/PhoenixMachina/views/course.html",Dict())
-  Response(render(homePage))
+  coursePage = Page("C:/Users/Nathanael/Desktop/julia/PhoenixMachina/views/course.html",Dict())
+  Response(render(coursePage))
 end
 
 function postContent(req::Request, res::Response)
-  Response("Vous êtes en état d'arrestation. HAUT LES MAINS")
+  getContent(req,res)
 end
