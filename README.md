@@ -16,7 +16,7 @@ and our Template Engine : Pkg.clone("https://github.com/PhoenixMachina/Tlaloc")
 You might have a problem with "MySQL library not found error". The error comes from above, look here to find the answer you're looking for : https://github.com/JuliaDB/MySQL.jl
 
 ### Database
-You need to have MySQL installed on your computer, create a database phoenixmachina and import the file phoenixmachina.sql which contains the tables you'll need.
+You need to have MySQL installed on your computer as well as a driver, create a database phoenixmachina and import the file phoenixmachina.sql which contains the tables you'll need.
 
 ## Settings
 ### Required
@@ -29,7 +29,7 @@ You then just need to open your browser and type localhost:8000/PhoenixMachina
 
 ## Contributing
 ### Implemented features
-- Page manager
+- Router
 
 ### Coming soon features
 - Access to courses
