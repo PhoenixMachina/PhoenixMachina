@@ -1,4 +1,5 @@
 # PhoenixMachina
+[![Build Status](https://travis-ci.org/PhoenixMachina/PhoenixMachina.svg?branch=master)](https://travis-ci.org/PhoenixMachina/PhoenixMachina)
 
 ## Backend requirements
 
