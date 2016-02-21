@@ -4,3 +4,4 @@ julia:
     - nightly
 notifications:
   slack: phoenixmachina:tUJkltUznVKfynIB7gxtKHbH
+  email : false
