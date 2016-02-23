@@ -20,7 +20,7 @@ You need to have MySQL installed on your computer as well as a driver, create a 
 
 ## Settings
 ### Required
-You need to set a few variables in config.jl; the required ones are specified.
+You need to set a few variables in config.jl; the required ones are specified, as well as the variables in include/tlaloc.ini .
 
 ## Start
 Launch start_server.jl. You should see "Listening on 0.0.0.0:8000..."
