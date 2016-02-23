@@ -9,6 +9,7 @@ Just run install.jl to download all necessary packages. If you want to do it by 
 - HttpServer
 - Logging
 - Markdown
+- SecureSessions
 
 To install a package, open a Julia console, and type Pkg.add("PACKAGE_NAME")
 

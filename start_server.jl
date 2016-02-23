@@ -4,6 +4,7 @@ using HttpCommon
 using Logging
 using SapphireORM
 using Tlaloc
+using SecureSessions
 
 # Required files
 include("config.jl")
