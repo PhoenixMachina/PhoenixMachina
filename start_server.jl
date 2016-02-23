@@ -4,6 +4,7 @@ using HttpCommon
 using Logging
 using SapphireORM
 using Tlaloc
+using SecureSessions
 
 # Required files
 include("config.jl")
@@ -81,7 +82,7 @@ http = HttpHandler() do req::Request, res::Response
   end # Ends regex conditions
 end  # Ends do
 
-global tlaloc = Tlaloc(string(HOME_URL,"include/tlaloc.ini"))
+global tlaloc = TlalocEngine(string(HOME_URL,"include/tlaloc.ini"))
 # Starting services
 connectToDatabase()
 startServer()
