@@ -1,5 +1,5 @@
 function getContent(req::Request, res::Response)
-  homePage = Page("C:/Users/Nathanael/Desktop/julia/PhoenixMachina/views/home.html",Dict())
+  homePage = Page(tlaloc,"home.html",Dict())
   Response(render(homePage))
 end
 

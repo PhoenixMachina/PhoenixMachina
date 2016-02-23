@@ -1,5 +1,5 @@
 function getContent(req::Request, res::Response)
-  coursePage = Page("C:/Users/Nathanael/Desktop/julia/PhoenixMachina/views/course.html",Dict())
+  coursePage = Page(tlaloc,"course.html",Dict())
   Response(render(coursePage))
 end
 

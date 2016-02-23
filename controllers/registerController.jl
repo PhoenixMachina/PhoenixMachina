@@ -1,10 +1,10 @@
 function getContent(req::Request, res::Response)
-  registerPage = Page("C:/Users/Nathanael/Desktop/julia/PhoenixMachina/views/register.html",Dict())
+  registerPage = Page(tlaloc,"register.html",Dict())
   Response(render(registerPage))
 end
 
 function postContent(req::Request, res::Response)
-  registerPage = Page("main.html","register.html",Dict())
+  registerPage = Page(tlaloc,"register.html",Dict())
   # Set post variables
   pseudo = ""
   password = ""

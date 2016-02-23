@@ -1,10 +1,10 @@
 function getContent(req::Request, res::Response)
-  loginPage = Page("C:/Users/Nathanael/Desktop/julia/PhoenixMachina/views/login.html",Dict())
+  loginPage = Page(tlaloc,"login.html",Dict())
   Response(render(loginPage))
 end
 
 function postContent(req::Request, res::Response)
-  loginPage = Page("main.html","login.html",Dict())
+  loginPage = Page(tlaloc,"login.html",Dict())
   # Set post variables
   username = ""
   password = ""
