@@ -1,5 +1,6 @@
 # PhoenixMachina
 [![Build Status](https://travis-ci.org/PhoenixMachina/PhoenixMachina.svg?branch=master)](https://travis-ci.org/PhoenixMachina/PhoenixMachina)
+[![Licence MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Backend requirements
 
