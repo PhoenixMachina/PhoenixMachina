@@ -31,5 +31,5 @@ function postContent(req::Request, res::Response)
    else
     err("Have you defined all inputs ?")
    end
-  Response(getParsedContent(registerPage))
+  Response(render(registerPage))
 end

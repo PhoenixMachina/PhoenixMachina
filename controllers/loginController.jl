@@ -15,9 +15,14 @@ function postContent(req::Request, res::Response)
     password = foo[n][1] == "password" ? foo[n][2] : !is_null(password) ? password : ""
   end
   if !is_null(username) && !is_null(password)
-    # Check all users added in the table
-    sql = "SELECT * FROM users;"
-    usersTable = mysql_execute_query(con, sql; opformat=MYSQL_TUPLES)
+
+    users = SapphireORM.get(conn,Dict("table" => "users"))
+
+    for test in eachrow(users)
+      print(test)
+    end
+
+    #=
     for row in eachindex(usersTable)
       # usersTable[row][2]: name
       # usersTable[row][3]: password
@@ -27,9 +32,11 @@ function postContent(req::Request, res::Response)
       else
         err("Wrong user/password")
       end
+
     end
+    =#
    else
     err("Have you defined all inputs ?")
    end
-  Response(getParsedContent(loginPage))
+  Response(render(loginPage))
 end

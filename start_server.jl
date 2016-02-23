@@ -5,6 +5,7 @@ using Logging
 using SapphireORM
 using Tlaloc
 using SecureSessions
+using DataFrames
 
 # Required files
 include("config.jl")
@@ -12,7 +13,7 @@ include("include/functions.jl")
 
 function connectToDatabase()   # Starting Database connexion
   try
-    global con = Sapphire(username=DB_USER, password=DB_PASSWORD, dbname=DB_NAME)
+    global conn = Sapphire(username=DB_USER, password=DB_PASSWORD, dbname=DB_NAME)
   catch
     critical("Failed to connect to the database.")
   end
