@@ -5,6 +5,7 @@ end
 
 function postContent(req::Request, res::Response)
   loginPage = Page(tlaloc,"login.html",Dict())
+  loadModule("user")
   # Set post variables
   username = ""
   password = ""
