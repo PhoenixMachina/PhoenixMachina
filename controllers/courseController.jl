@@ -1,5 +1,6 @@
 function getContent(req::Request, res::Response)
   coursePage = Page(tlaloc,"course.html",Dict())
+  addArg(coursePage,"courseName","Introduction au machine learning")
   Response(render(coursePage))
 end
 
