@@ -45,14 +45,29 @@ http = HttpHandler() do req::Request, res::Response
       if isempty(req.data)
         getContent(req,res)
       else
-        global dataPost = "" # Reset
-        global foo = []
+        global dataPost = Dict()
+        key = ""
+        value = ""
+        word = "key"
         for n in eachindex(req.data)
-          global dataPost = string(dataPost, Char(req.data[n]))
+          char = Char(req.data[n])
+          if char == '='
+            word = "value"
+          elseif char == '&'
+            dataPost[key] = value
+            word = "key"
+            value = ""
+            key = ""
+          else
+            if word == "key"
+              key = string(key, char)
+            else
+              value = string(value, char)
+            end
+          end
         end
-        global dataPost = split(dataPost, "&")
-        for n in eachindex(dataPost)
-          push!(foo, split(dataPost[n], "="))
+        if key != "" && value != ""
+          dataPost[key] = value
         end
         postContent(req,res)
       end
