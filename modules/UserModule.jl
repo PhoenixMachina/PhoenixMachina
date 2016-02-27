@@ -12,3 +12,8 @@ module UserModule
 
   end
 end
+
+function checkUser(username::AbstractString, password::AbstractString)
+  return SapphireORM.get(conn,Dict("table" => "users",
+                                   "where" => "username='$username' AND password='$password'"))
+end

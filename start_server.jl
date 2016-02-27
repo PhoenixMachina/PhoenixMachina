@@ -6,6 +6,7 @@ using SapphireORM
 using Tlaloc
 using SecureSessions
 using DataFrames
+using SHA
 
 # Required files
 include("config.jl")
