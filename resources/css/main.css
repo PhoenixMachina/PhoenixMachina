@@ -81,7 +81,7 @@ body {
   }
 
 .loginForm {
-  margin-top: 100px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -115,9 +115,15 @@ body {
     margin-top: 3%;
     line-height: 1.8;
   }
-  .cgu h1
+  h1
   {
     font-size: 25px;
+  }
+  .centeredTitle
+  {
+    font-size: 25px;
+    text-align: center;
+    margin:5px;
   }
 /* ---- State ---- */
 .footer {
@@ -129,5 +135,4 @@ body {
   margin-top: 15px;
   font-weight: lighter;
 }
-
 /* ---- Theme ---- */
