@@ -1,5 +1,6 @@
 function getContent(req::Request, res::Response)
   loginPage = Page(tlaloc,"login.html",Dict())
+  addArg(loginPage, "error", "")
   Response(render(loginPage))
 end
 
