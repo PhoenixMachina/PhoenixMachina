@@ -120,5 +120,13 @@ body {
     font-size: 25px;
   }
 /* ---- State ---- */
+.footer {
+  height: 50px;
+  background-color: #212121;
+  color: #eeeeee;
+  line-height: 50px;
+  padding: 0 20px;
+  font-weight: lighter;
+}
 
 /* ---- Theme ---- */
