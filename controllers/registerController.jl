@@ -1,5 +1,6 @@
 function getContent(req::Request, res::Response)
   registerPage = Page(tlaloc,"register.html",Dict())
+  addArg(registerPage, "pageTitle", "Inscription")
   Response(render(registerPage))
 end
 
