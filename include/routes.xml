@@ -1,6 +1,16 @@
 <routes>
+  <!-- Visitor pages -->
   <route url="home" controller="homeController" />
   <route url="login" controller="loginController"/>
   <route url="register" controller="registerController"/>
+
+  <!-- Members pages -->
+
+  <!-- Admin pages -->
+  <route url="admin/" controller="adminController"/>
+  <route url="admin/courses/editor" controller="courseEditorController"/>
+
+  <!-- Static pages -->
   <route url="cgu" controller="cguController"/>
+  <route url="cookies" controller="cookiesController"/>
 </routes>
