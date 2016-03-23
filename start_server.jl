@@ -42,7 +42,7 @@ http = HttpHandler() do req::Request, res::Response
     end
 
   elseif ismatch(r"^/PhoenixMachina/",req.resource) # Other controller
-    m = match(r"^/PhoenixMachina\/([a-zA-Z0-9/]+)?\/?",req.resource)
+    m = match(r"^/PhoenixMachina\/([a-zA-Z0-9]+)?\/?",req.resource)
     if isRoute(yodel, string("",(m.match)[17:end]))
       route = getRoute(yodel, string("",(m.match)[17:end]))
       if !isfile(string(HOME_URL,"controllers/",route.controller,".jl"))
