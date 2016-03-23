@@ -7,6 +7,7 @@ using Tlaloc
 using SecureSessions
 using DataFrames
 using SHA
+using Yodel
 
 # Required files
 include("config.jl")
@@ -31,6 +32,7 @@ end
 
 # Starting URL Routing
 http = HttpHandler() do req::Request, res::Response
+  yodel = YodelEngine(string(HOME_URL,"include/routes.xml"))
   if ismatch(r"PhoenixMachina$",req.resource)||ismatch(r"PhoenixMachina/$",req.resource) # Home controller
     include(string(HOME_URL,"controllers/",HOME_CONTROLLER))
     if isempty(req.data)
@@ -41,8 +43,12 @@ http = HttpHandler() do req::Request, res::Response
 
   elseif ismatch(r"^/PhoenixMachina/",req.resource) # Other controller
     m = match(r"^/PhoenixMachina\/([a-zA-Z0-9]+)?\/?",req.resource)
-    if isfile(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
-      include(string(HOME_URL,"controllers/",(m.match)[17:end],"Controller.jl"))
+    if getRoute(yodel, string("",(m.match)[17:end])) != ""
+      route = getRoute(yodel, string("",(m.match)[17:end]))
+      if !isfile(string(HOME_URL,"controllers/",route.controller,".jl"))
+        critical("Missing controller")
+      end
+      include(string(HOME_URL,"controllers/",route.controller,".jl"))
       if isempty(req.data)
         getContent(req,res)
       else

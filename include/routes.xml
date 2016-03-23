@@ -1,0 +1,6 @@
+<routes>
+  <route url="home" controller="homeController" />
+  <route url="login" controller="loginController"/>
+  <route url="register" controller="registerController"/>
+  <route url="cgu" controller="cguController"/>
+</routes>
