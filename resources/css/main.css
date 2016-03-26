@@ -131,8 +131,11 @@ body {
   background-color: #212121;
   color: #eeeeee;
   line-height: 50px;
-  padding: 0 20px;
   margin-top: 15px;
   font-weight: lighter;
+  position:absolute;
+  bottom:0;
+  width: 100%;
+  text-align: center;
 }
 /* ---- Theme ---- */
