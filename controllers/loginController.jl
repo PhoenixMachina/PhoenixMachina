@@ -10,7 +10,7 @@ function postContent(req::Request, res::Response)
   loadModule("user")
   if haskey(dataPost, "username") && dataPost["username"] != "" && haskey(dataPost, "password") && dataPost["password"] != ""
     if length(checkUser(dataPost["username"], sha1(sha1(dataPost["password"])))) == 1
-      Response(render(loginPage))
+      Response(render(loginPage, "error", "ok"))
     else
       addArg(loginPage, "error", "Le nom d'utilisateur et le mot de passe ne correspondent pas.")
     end
