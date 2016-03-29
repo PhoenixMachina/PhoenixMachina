@@ -1,5 +1,7 @@
 function getContent(req::Request, res::Response)
   registerPage = Page(tlaloc,"register.html",Dict())
+  addArg(registerPage, "error", "")
+  addArg(registerPage, "pageTitle", "Inscription")
   Response(render(registerPage))
 end
 
@@ -24,7 +26,6 @@ function postContent(req::Request, res::Response)
         addArg(registerPage, "error", "L'addresse e-mail $mail est déjà liée à un compte.")
         Response(render(registerPage))
     end
-    
     addUser(username, password, mail)
    else
     err("Have you defined all inputs ?")
