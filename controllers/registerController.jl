@@ -7,7 +7,7 @@ end
 
 function postContent(req::Request, res::Response)
   registerPage = Page(tlaloc,"register.html",Dict())
-  if haskey(dataPost, "username") && dataPost["username"] != "" && haskey(dataPost, "password") && dataPost["password"] != "" && haskey(dataPost, "mail") && dataPost["mail"] != ""
+  if haskey(dataPost, "cgu") && haskey(dataPost, "username") && dataPost["username"] != "" && haskey(dataPost, "password") && dataPost["password"] != "" && haskey(dataPost, "mail") && dataPost["mail"] != ""
     loadModule("user")
     username = dataPost["username"]
     password = dataPost["password"]
@@ -28,7 +28,7 @@ function postContent(req::Request, res::Response)
     end
     addUser(username, password, mail)
    else
-    err("Have you defined all inputs ?")
+     addArg(registerPage, "error", "Erreur, vous n'avez pas remplis tous les champs ou avez oublié d'accepter les CGU")
    end
   Response(render(registerPage))
 end
