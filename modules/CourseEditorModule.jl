@@ -1,5 +1,5 @@
 module CourseEditorModule
-  export tagCourse,unTagCourse
+  export tagCourse,unTagCourse,changeCourseAttribute
 
   using CourseModule
 
@@ -24,7 +24,7 @@ module CourseEditorModule
 
   # Change name
   function changeCourseAttribute(course::Course,attribute,newValue)
-     (course.attributes)[attribute] = value
+     (course.attributes)[attribute] = newValue
   end
 
 end

@@ -14,3 +14,7 @@ tagCourse(course,"newTag")
 # Testing untag function
 unTagCourse(course,"anotherOne")
 @test (course.attributes)["tags"] == "aTag,newTag"
+
+# Testing changeCourseAttribute
+changeCourseAttribute(course,"name","NewName")
+@test (course.attributes)["name"] == "NewName"
