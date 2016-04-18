@@ -3,6 +3,26 @@ module CourseEditorModule
 
   using CourseModule
 
+# Saving to database
+
+  # Creating a new course
+  function saveCourse(course::Course)
+    return SapphireORM.insert(conn,Dict("table" => "courses",
+                                        "values" => Dict("name" => "'$(course.name)'",
+                                                         "logo" => "'$(course.logo)'",
+                                                         "category" => "'$(course.category)'",
+                                                         "tags" => "'$(course.tags)'",
+                                                         "level" => "'$(course.level)'",
+                                                         "introduction" => "'$(course.introduction)'",
+                                                         "conclusion" => "'$(course.conclusion)'")))
+  end
+
+  # Updating an existing course
+  function updateCourse(course::Course)
+  end
+
+#Changing attributes
+
   # Tags a course
   function tagCourse(course::Course,tag::ASCIIString)
     (course.attributes)["tags"] = string((course.attributes)["tags"],",",tag)
