@@ -1,6 +1,6 @@
 module CourseModule
 
-  export Course
+  export Course,CoursePart,CourseChapter,getCourse
 
   type Course
 
@@ -10,6 +10,16 @@ module CourseModule
       new(Dict("id"=>id,"name"=>name,"logo"=>logo,"category"=>category,"tags"=>tags,"level"=>level,"introduction"=>introduction,"conclusion"=>conclusion,"lastUpdated"=>lastUpdated))
     end
 
+  end
+
+  type CoursePart
+  end
+  type CourseChapter
+  end
+
+  function getCourse(id)
+    course_data = SapphireORM.get(conn,Dict("table" => "courses",
+                                     "where" => "id='$id'"))
   end
 
 end
