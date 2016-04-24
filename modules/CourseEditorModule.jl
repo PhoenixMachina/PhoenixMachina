@@ -1,20 +1,21 @@
 module CourseEditorModule
-  export tagCourse,unTagCourse,changeCourseAttribute
+  export tagCourse,unTagCourse,changeCourseAttribute,saveCourse
 
   using CourseModule
-
+  using SapphireORM
+  using ODBC
 # Saving to database
 
   # Creating a new course
-  function saveCourse(course::Course)
+  function saveCourse(conn::Connection,course::Course)
     return SapphireORM.insert(conn,Dict("table" => "courses",
-                                        "values" => Dict("name" => "'$(course.name)'",
-                                                         "logo" => "'$(course.logo)'",
-                                                         "category" => "'$(course.category)'",
-                                                         "tags" => "'$(course.tags)'",
-                                                         "level" => "'$(course.level)'",
-                                                         "introduction" => "'$(course.introduction)'",
-                                                         "conclusion" => "'$(course.conclusion)'")))
+                                        "values" => Dict("name" => "'$((course.attributes)["name"])'",
+                                                         "logo" => "'$((course.attributes)["logo"])'",
+                                                         "category" => "'$((course.attributes)["category"])'",
+                                                         "tags" => "'$((course.attributes)["tags"])'",
+                                                         "level" => "'$((course.attributes)["level"])'",
+                                                         "introduction" => "'$((course.attributes)["introduction"])'",
+                                                         "conclusion" => "'$((course.attributes)["conclusion"])'")))
   end
 
   # Updating an existing course
