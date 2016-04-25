@@ -2,11 +2,12 @@ module CourseModule
 
   export Course,CoursePart,CourseChapter,getCourse
 
+  using SapphireORM
   type Course
 
     attributes::Dict
 
-    function Course(id,name::ASCIIString="",logo::ASCIIString="default.jpg",category::ASCIIString="",tags::ASCIIString="",level::ASCIIString="Beginner",introduction::ASCIIString="",conclusion::ASCIIString="",lastUpdated="00/00/0000")
+    function Course(id,name="",logo="default.jpg",category="",tags="",level="Beginner",introduction="",conclusion="",lastUpdated="00/00/0000")
       new(Dict("id"=>id,
               "name"=>name,
               "logo"=>logo,
@@ -40,9 +41,19 @@ module CourseModule
     end
   end
 
-  function getCourse(id)
+  function getCourse(conn,id)
     course_data = SapphireORM.get(conn,Dict("table" => "courses",
                                      "where" => "id='$id'"))
+    course = Course(course_data[1][1],
+                    course_data[2][1],
+                    course_data[3][1],
+                    course_data[4][1],
+                    course_data[5][1],
+                    course_data[6][1],
+                    course_data[7][1],
+                    course_data[8][1],
+                    course_data[9][1])
+    return course
   end
 
 end
