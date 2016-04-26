@@ -48,4 +48,10 @@ module CourseEditorModule
      (course.attributes)[attribute] = newValue
   end
 
+  # Delete course
+  function deleteCourse(conn::Connection,courseId::Int)
+    return SapphireORM.delete(conn,Dict("table" => "courses",
+                                       "where" => "id='$id'"))
+  end
+
 end
