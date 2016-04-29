@@ -1,7 +1,7 @@
 #REQUIRED
 
 #Home URLS
-HOME_CONTROLLER = "HomeController.jl"
+HOME_CONTROLLER = "homeController.jl"
 HOME_URL = ""
 
 # Database
