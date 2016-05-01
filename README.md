@@ -23,7 +23,7 @@ You need to have MySQL installed on your computer as well as a driver, create a 
 
 ## Settings
 ### Required
-You need to set a few variables in config.jl; the required ones are specified, as well as the variables in include/tlaloc.ini .
+You need to set a few variables in config.jl; the required ones are specified, as well as the variables in include/tlaloc.ini (the path must be absolute and don't need a slash at its end).
 
 ## Start
 Launch start_server.jl. You should see "Listening on 0.0.0.0:8000..."
@@ -33,6 +33,8 @@ You then just need to open your browser and type localhost:8000/PhoenixMachina
 ## Contributing
 ### Implemented features
 - Router
+
+- Login & register
 
 ### Coming soon features
 - Access to courses
