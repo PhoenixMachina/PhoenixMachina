@@ -18,14 +18,14 @@ li{list-style:none}
 /* ---- base ---- */
 
 html,body{
-	width:100%;
-	height:100%;
-	background:#111;
+    width:100%;
+    height:100%;
+    background:#111;
 }
 
 html{
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 canvas{
@@ -38,106 +38,106 @@ canvas{
 /* ---- Module ---- */
 
 .connectionContainer {
-	position: absolute;
-	right: 0;
-	margin: 10px;
-	color: #DDDDDD;
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    color: #DDDDDD;
 }
 
 .titleWrapper{
-	position: absolute;
-	top: 100px;
-	text-align: center;
-	width: 100%;
+    position: absolute;
+    top: 100px;
+    text-align: center;
+    width: 100%;
 }
 
-	.title{
-		color: #FFFFFF;
-		font-size: 6em;
-	}
+    .title{
+        color: #FFFFFF;
+        font-size: 6em;
+    }
 
-	@media screen and (max-width: 700px) {
-	  .title {
-	    font-size: 4em;
-	  	}
-	}
+    @media screen and (max-width: 700px) {
+      .title {
+        font-size: 4em;
+        }
+    }
 
-	@media screen and (max-width: 500px) {
-	  .title {
-	    font-size: 2em;
-	  	}
-	}
+    @media screen and (max-width: 500px) {
+      .title {
+        font-size: 2em;
+        }
+    }
 
-	.sub-title{
-		color: #B3B3B3;
-		font-size: 2em;
-		font-weight: 100;
-	}
+    .sub-title{
+        color: #B3B3B3;
+        font-size: 2em;
+        font-weight: 100;
+    }
 
-	@media screen and (max-width: 700px) {
-	  .sub-title {
-	    font-size: 1.5em;
-	  	}
-	}
+    @media screen and (max-width: 700px) {
+      .sub-title {
+        font-size: 1.5em;
+        }
+    }
 
-	@media screen and (max-width: 500px) {
-	  .sub-title {
-	    font-size: 1em;
-	  	}
-	}
+    @media screen and (max-width: 500px) {
+      .sub-title {
+        font-size: 1em;
+        }
+    }
 
-	.particles-js{
-	  width: 100%;
-	  height: 350px;
-	  background-size: cover;
-	  background-position: 50% 50%;
-	  background-repeat: no-repeat;
-	}
+    .particles-js{
+      width: 100%;
+      height: 350px;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
 
-	.mainPage {
-	  width: 100%;
-		background-color: white;
-		padding-top: 20px;
-		padding-bottom: 50px;
-	}
-		.titleCourseTable {
-			text-align: center;
-			margin: 30px;
-			font-size: 1.5em;
-			color: #555555
-		}
-		.courseTable {
-				background-color: #EEEEEE;
-				margin: auto;
-				width: 60%;
-				text-align: center;
-				font-size: 1.5em;
-		}
+    .mainPage {
+      width: 100%;
+        background-color: white;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+        .titleCourseTable {
+            text-align: center;
+            margin: 30px;
+            font-size: 1.5em;
+            color: #555555
+        }
+        .courseTable {
+                background-color: #EEEEEE;
+                margin: auto;
+                width: 60%;
+                text-align: center;
+                font-size: 1.5em;
+        }
 
-			.courseTable a {
-				color: #555555;
-			}
+            .courseTable a {
+                color: #555555;
+            }
 
-			.courseTable a:hover {
-				color: #777777;
-			}
+            .courseTable a:hover {
+                color: #777777;
+            }
 
-		.courseTable td {
-				padding: 20px 0;
-		}
+        .courseTable td {
+                padding: 20px 0;
+        }
 
-		.footer {
-		  height: 50px;
-		  background-color: #212121;
-		  color: #eeeeee;
-		  line-height: 50px;
-		  margin-top: 15px;
-		  font-weight: lighter;
-		  position:absolute;
-		  bottom:0;
-		  width: 100%;
-		  text-align: center;
-		}
+        .footer {
+          height: 50px;
+          background-color: #212121;
+          color: #eeeeee;
+          line-height: 50px;
+          margin-top: 15px;
+          font-weight: lighter;
+          /*position:absolute;
+          bottom:0;*/
+          width: 100%;
+          text-align: center;
+        }
 
 /* ---- State ---- */
 
