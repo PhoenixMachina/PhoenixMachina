@@ -6,4 +6,4 @@ notifications:
   slack: phoenixmachina:tUJkltUznVKfynIB7gxtKHbH
   email : false
 after_success:
-- julia -e 'cd(Pkg.dir("PhoenixMachina")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
+- julia -e 'cd(Pkg.dir("PhoenixMachina")); Pkg.add("Coverage"); using Coverage; Codecov.submit(string(Codecov.process_folder(),"/modules"))'
