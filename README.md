@@ -28,11 +28,13 @@ You need to set a few variables in config.jl; the required ones are specified, a
 ## Start
 Launch start_server.jl. You should see "Listening on 0.0.0.0:8000..."
 
-You then just need to open your browser and type localhost:8000/PhoenixMachina
+You then just need to open your browser and type localhost:8000/PhoenixMachina/ (the slash at the end is currently necessary)
 
 ## Contributing
 ### Implemented features
 - Router
+
+- Login and signup
 
 ### Coming soon features
 - Access to courses
