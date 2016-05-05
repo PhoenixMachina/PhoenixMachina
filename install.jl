@@ -11,4 +11,10 @@ end
 if !("Yodel" in keys(Pkg.installed()))
   Pkg.clone("https://github.com/PhoenixMachina/Yodel")
 end
+if !("ConfParser" in keys(Pkg.installed()))
+  Pkg.clone("https://github.com/PhoenixMachina/ConfParser.jl")
+end
+if !("SapphireORM" in keys(Pkg.installed()))
+  Pkg.clone("https://github.com/PhoenixMachina/SapphireORM")
+end
 Pkg.add("SecureSessions")
