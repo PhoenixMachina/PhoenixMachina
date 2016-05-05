@@ -2,17 +2,16 @@
 [![Build Status](https://travis-ci.org/PhoenixMachina/PhoenixMachina.svg?branch=master)](https://travis-ci.org/PhoenixMachina/PhoenixMachina)
 [![Licence MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Backend requirements
+## Installing PhoenixMachina on Linux
+You'll first need to have MySQL installed on your computer and added the phoenixmachina.sql file to your database.
+We have a script to install everything else at once that you can find here : https://github.com/PhoenixMachina/launcher-linux
 
-### Packages
-Just run install.jl to download all necessary packages. If you want to do it by hand, you need to install those packages :
-- HttpServer
-- Logging
-- Markdown
-- SecureSessions
-- SHA
+## Installing PhoenixMachina on OSX
+Sorry, we don't like OSX. Go away.
 
-To install a package, open a Julia console, and type Pkg.add("PACKAGE_NAME")
+## Installing PhoenixMachina on Windows
+### Julia dependencies
+Just run install.jl to download all necessary packages.
 
 You also need our ORM : Pkg.clone("https://github.com/PhoenixMachina/SapphireORM")
 and our Template Engine : Pkg.clone("https://github.com/PhoenixMachina/Tlaloc")
@@ -21,8 +20,7 @@ You might have a problem with "MySQL library not found error". The error comes f
 ### Database
 You need to have MySQL installed on your computer as well as a driver, create a database phoenixmachina and import the file phoenixmachina.sql which contains the tables you'll need.
 
-## Settings
-### Required
+### Settings
 You need to set a few variables in config.jl; the required ones are specified, as well as the variables in include/tlaloc.ini .
 
 ## Start
