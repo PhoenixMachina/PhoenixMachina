@@ -1,13 +1,12 @@
 #REQUIRED
 
 #Home URLS
-HOME_CONTROLLER = "homeController.jl"
+HOME_CONTROLLER = "HomeController.jl"
 HOME_URL = ""
 
 # Database
+DB_DSN = ""
 DB_USER = ""
 DB_PASSWORD = ""
-DB_NAME = ""
-DB_HOST = ""
 
 #OPTIONAL
