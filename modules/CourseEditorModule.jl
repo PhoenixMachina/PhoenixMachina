@@ -43,6 +43,14 @@ module CourseEditorModule
     return true
   end
 
+  # Add part_id
+  function addPart(course::Course,name::ASCIIString,order)
+    part = CoursePart(0,(course.attributes)["id"],name,order)
+  end
+  # Add chapter
+  function addChapter(course::Course)
+  end
+
   # Change name
   function changeCourseAttribute(course::Course,attribute,newValue)
      (course.attributes)[attribute] = newValue
