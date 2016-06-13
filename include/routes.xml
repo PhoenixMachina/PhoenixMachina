@@ -9,7 +9,7 @@
 
   <!-- Admin pages -->
   <route url="admin/" controller="adminController"/>
-  <route url="admin/editor/\/[a-zA-Z0-9]+\/[a-zA-Z0-9]+\/" variables="type,action" controller="courseEditorController"/>
+  <route url="admin/editor\/[a-zA-Z0-9]+\/[a-zA-Z0-9]+" variables="type,action" controller="courseEditorController"/>
 
   <!-- Static pages -->
   <route url="cgu" controller="cguController"/>
