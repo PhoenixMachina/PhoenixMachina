@@ -1,9 +1,9 @@
 <routes>
   <!-- Visitor pages -->
-  <route url="home" controller="homeController" />
+  <route url="/" controller="homeController" />
   <route url="login" controller="loginController"/>
   <route url="register" controller="registerController"/>
-  <route url="courses\/[a-zA-Z0-9]+\/" controller="courseController" variables="course_name" />
+  <route url="courses\/[a-zA-Z0-9]+" controller="courseController" variables="course_name" />
 
   <!-- Members pages -->
 
