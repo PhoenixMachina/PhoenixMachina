@@ -1,0 +1,2 @@
+14-Jun 11:06:26:CRITICAL:root:Failed to start server. Error : UndefVarError(:http)
+14-Jun 11:06:43:CRITICAL:root:Failed to start server. Error : UndefVarError(:http)
