@@ -32,7 +32,6 @@ end
 
 # Starting URL Routing
 http = HttpHandler() do req::Request, res::Response
-  yodel = YodelEngine(string(HOME_URL,"include/routes.xml"))
   if ismatch(r"PhoenixMachina$",req.resource)||ismatch(r"PhoenixMachina/$",req.resource) # Home controller
     include(string(HOME_URL,"controllers/",HOME_CONTROLLER))
     if isempty(req.data)
@@ -52,31 +51,7 @@ http = HttpHandler() do req::Request, res::Response
       if isempty(req.data)
         getContent(req,res)
       else
-        global dataPost = Dict()
-        key = ""
-        value = ""
-        word = "key"
-        for n in eachindex(req.data)
-          char = Char(req.data[n])
-          if char == '='
-            word = "value"
-          elseif char == '&'
-            dataPost[key] = value
-            word = "key"
-            value = ""
-            key = ""
-          else
-            if word == "key"
-              key = string(key, char)
-            else
-              value = string(value, char)
-            end
-          end
-        end
-        if key != "" && value != ""
-          dataPost[key] = value
-        end
-        postContent(req,res)
+        global dataPost = reqToDict(req.data)
       end
     else
       if ismatch(r"^/PhoenixMachina/resources/",req.resource) #Access to a ressource page
@@ -106,6 +81,7 @@ http = HttpHandler() do req::Request, res::Response
 end  # Ends do
 
 global tlaloc = TlalocEngine(string(HOME_URL,"include/tlaloc.ini"))
+global yodel = YodelEngine(string(HOME_URL,"include/routes.xml"))
 # Starting services
 connectToDatabase()
 startServer()
