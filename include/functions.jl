@@ -39,3 +39,12 @@ function reqToDict(data)
   end
   return dataPost
 end
+
+# Get headers
+function getHeaders(contentType)
+  return Headers(
+  "Server"            => "Julia/$VERSION",
+  "Content-Type"      => "text/$contentType; charset=utf-8",
+  "Content-Language"  => "fr",
+  "Date"              => Dates.format(now(Dates.UTC), Dates.RFC1123Format) )
+end
