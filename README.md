@@ -21,7 +21,28 @@ You might have a problem with "MySQL library not found error". The error comes f
 You need to have MySQL installed on your computer as well as a driver, create a database phoenixmachina and import the file phoenixmachina.sql which contains the tables you'll need.
 
 ### Settings
-You need to set a few variables in config.jl; the required ones are specified, as well as the variables in include/tlaloc.ini .
+There are two files you need to create: config.jl in the main folder, and tlaloc.ini in the include folder. Here are their contents, which you need to change depending on your environment:
+config.jl :
+```
+#REQUIRED
+
+#Home URLS
+HOME_CONTROLLER = "HomeController.jl"
+HOME_URL = "/path/to/PhoenixMachina/"
+
+DB_DSN = "MySQL_database"
+DB_USER = ""
+DB_PASSWORD = ""
+
+#OPTIONAL
+Logging.configure(output=open("/path/to/project/logfile.log", "a"))
+```
+tlaloc.ini
+```
+viewPath=/path/to/PhoenixMachina/views/
+templatePath=/path/to/PhoenixMachina/templates/
+resourcePath=/path/to/PhoenixMachina/resources/
+```
 
 ## Start
 Launch start_server.jl. You should see "Listening on 0.0.0.0:8000..."
