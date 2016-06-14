@@ -16,7 +16,7 @@ function postContent(req::Request, res::Response)
     # If the username already exist
     if length(SapphireORM.get(conn,Dict("table" => "users",
                                        "where" => "username='$username'"))) > 0
-        addArg(registerPage, "error", "Le nom d'utilisateur $username est déjà pris.")
+        addArg(registerPage, "error", "Ce nom d'utilisateur est déjà pris.")
         Response(render(registerPage))
     end
 
