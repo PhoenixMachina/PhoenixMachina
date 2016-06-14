@@ -1,7 +1,7 @@
 function getContent(req::Request, res::Response)
-  homePage = Page(tlaloc,"courseEditor.html",Dict())
-  addArg(homePage, "pageTitle", "Editeur de cours")
-  Response(render(homePage))
+  cEdPage = Page(tlaloc,"courseEditor.html",Dict())
+  addArg(cEdPage, "pageTitle", "Editeur de cours")
+  Response(render(cEdPage))
 end
 
 function postContent(req::Request, res::Response)

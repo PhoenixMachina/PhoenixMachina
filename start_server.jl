@@ -32,80 +32,59 @@ end
 
 # Starting URL Routing
 http = HttpHandler() do req::Request, res::Response
-  yodel = YodelEngine(string(HOME_URL,"include/routes.xml"))
-  if ismatch(r"PhoenixMachina$",req.resource)||ismatch(r"PhoenixMachina/$",req.resource) # Home controller
-    include(string(HOME_URL,"controllers/",HOME_CONTROLLER))
-    if isempty(req.data)
-      getContent(req,res)
-    else
-      postContent(req,res)
-    end
 
-  elseif ismatch(r"^/PhoenixMachina/",req.resource) # Other controller
-    m = match(r"^/PhoenixMachina\/([a-zA-Z0-9]+)?\/?",req.resource)
+  if ismatch(r"^/PhoenixMachina/",req.resource) # Check if URL matches
+
+    m = match(r"^/PhoenixMachina\/([a-zA-Z0-9./]+)",req.resource) # Get full URL
+
+    # Check if URL matches with a route.
+    # If it does, get controller and throw an error if it does not exist
+    # If it does exist, call the right method
     if isRoute(yodel, string("",(m.match)[17:end]))
       route = getRoute(yodel, string("",(m.match)[17:end]))
       if !isfile(string(HOME_URL,"controllers/",route.controller,".jl"))
         critical("Missing controller")
       end
       include(string(HOME_URL,"controllers/",route.controller,".jl"))
+
       if isempty(req.data)
         getContent(req,res)
       else
-        global dataPost = Dict()
-        key = ""
-        value = ""
-        word = "key"
-        for n in eachindex(req.data)
-          char = Char(req.data[n])
-          if char == '='
-            word = "value"
-          elseif char == '&'
-            dataPost[key] = value
-            word = "key"
-            value = ""
-            key = ""
-          else
-            if word == "key"
-              key = string(key, char)
-            else
-              value = string(value, char)
-            end
-          end
-        end
-        if key != "" && value != ""
-          dataPost[key] = value
-        end
+        global dataPost = reqToDict(req.data)
         postContent(req,res)
       end
-    else
-      if ismatch(r"^/PhoenixMachina/resources/",req.resource) #Access to a ressource page
-        if !ismatch(r"^/PhoenixMachina\/resources\/([a-zA-Z0-9./]+)",req.resource)
-          Response("404")
-        else
-          # Check if file exists, if yes, returns it
-          m2 = match(r"^/PhoenixMachina\/resources\/([a-zA-Z0-9./]+)",req.resource)
-          if isfile(string(HOME_URL,(m2.match)[17:end]))
-            headers = Headers(
-            "Server"            => "Julia/$VERSION",
-            "Content-Type"      => "text/css; charset=utf-8",
-            "Content-Language"  => "fr",
-            "Date"              => Dates.format(now(Dates.UTC), Dates.RFC1123Format) )
-            Response(open(readall,string(HOME_URL,(m2.match)[17:end])),headers)
-          else
-            Response("404")
-          end
-        end
-      else
+
+    # If it isn't a route, check to see if it's a resource.
+    # If it isn't, the page does not exist, so send back a 404.
+    # If it does exist, send it with the appropriate header.
+    elseif ismatch(r"^/PhoenixMachina/resources/",req.resource) #Access to a ressource page
+      if !ismatch(r"^/PhoenixMachina\/resources\/([a-zA-Z0-9./]+)",req.resource)
         Response("404")
+      else
+        resourceMatch = match(r"^/PhoenixMachina\/resources\/([a-zA-Z0-9./]+)",req.resource)
+        if isfile(string(HOME_URL,(resourceMatch.match)[17:end]))
+          # Get type
+          contentType = (resourceMatch.match)[end-((match(r".",req.resource)).offset)+1:end]
+          Response(open(readall,string(HOME_URL,(resourceMatch.match)[17:end])),getHeaders(contentType))
+        else
+          Response("404")
+        end
       end
+      # If it's neither a route nor a resource, it's nothing.
+    else
+      Response("404")
     end
+
+  # If it does not have PM in it's URL, then it's asking for another project so send a 404
   else
     Response("404")
   end # Ends regex conditions
 end  # Ends do
 
+# Initiating modules
 global tlaloc = TlalocEngine(string(HOME_URL,"include/tlaloc.ini"))
+global yodel = YodelEngine(string(HOME_URL,"include/routes.xml"))
+
 # Starting services
 connectToDatabase()
 startServer()
