@@ -14,21 +14,17 @@ function postContent(req::Request, res::Response)
     mail = dataPost["mail"]
 
     # If the username already exist
-    if length(SapphireORM.get(conn,Dict("table" => "users",
+    if nrow(SapphireORM.get(conn,Dict("table" => "users",
                                        "where" => "username='$username'"))) > 0
-        addArg(registerPage, "error", "Ce nom d'utilisateur est déjà pris.")
-        Response(render(registerPage))
-    end
-
-    #If the mail already exist
-    if length(SapphireORM.get(conn,Dict("table" => "users",
+        addArg(registerPage, "error", "Ce nom d'utilisateur est deja pris.")
+    elseif nrow(SapphireORM.get(conn,Dict("table" => "users",
                                        "where" => "mail='$mail'"))) > 0
-        addArg(registerPage, "error", "L'addresse e-mail $mail est déjà liée à un compte.")
-        Response(render(registerPage))
+        addArg(registerPage, "error", "Cette addresse e-mail est deja liee a un compte.")
+    else
+      addUser(username, password, mail)
     end
-    addUser(username, password, mail)
-   else
-     addArg(registerPage, "error", "Erreur, vous n'avez pas remplis tous les champs ou avez oublié d'accepter les CGU")
-   end
+  else
+     addArg(registerPage, "error", "Erreur, vous n'avez pas remplis tous les champs ou avez oublie d'accepter les CGU")
+  end
   Response(render(registerPage))
 end
